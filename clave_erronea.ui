@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>¡Error en el registro!</string>
+   <string>¡Error!</string>
   </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
@@ -28,19 +28,19 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>60</x>
       <y>40</y>
-      <width>291</width>
+      <width>191</width>
       <height>17</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>15</pointsize>
+      <pointsize>16</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Clave de administrador erronea</string>
+     <string>      Clave erronea</string>
     </property>
    </widget>
   </widget>

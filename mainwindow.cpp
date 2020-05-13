@@ -19,12 +19,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    base.abrirDB("/home/alseuser/ProyectoALSE/base_datos");
+    base.abrirDB("/home/alseuser/ProyectoAlse/base_datos");
 
     ui->setupUi(this);
 
-    rd = new QPixmap("/home/alseuser/ProyectoALSE/12.png"); //led apagado
-    rl = new QPixmap("/home/alseuser/ProyectoALSE/13.png"); //led encendido
+    rd = new QPixmap("/home/alseuser/ProyectoAlse/12.png"); //led apagado
+    rl = new QPixmap("/home/alseuser/ProyectoAlse/13.png"); //led encendido
 
 
     ui->boton_1->setIcon(*rd);
@@ -629,7 +629,7 @@ void MainWindow::verificar_click(int estado)
     else{_errores++;
         a.ac_error = "Error";
         datos_prueba.push_back(a);
-        ui->_lbl_errores->setText(QString::fromStdString(std::to_string(_errores)));
+        ui->_lbl_errores->setText(QString::fromStdString(std::to_string(_errores -1)));
          cambio_estado();}
 }
 /**
