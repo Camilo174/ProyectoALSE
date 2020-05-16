@@ -19,12 +19,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    base.abrirDB("/home/alseuser/ProyectoAlse/base_datos");
+    base.abrirDB("/home/alseuser/ProyectoALSE/base_datos");
 
     ui->setupUi(this);
 
-    rd = new QPixmap("/home/alseuser/ProyectoAlse/12.png"); //led apagado
-    rl = new QPixmap("/home/alseuser/ProyectoAlse/13.png"); //led encendido
+    rd = new QPixmap("/home/alseuser/ProyectoALSE/12.png"); //led apagado
+    rl = new QPixmap("/home/alseuser/ProyectoALSE/13.png"); //led encendido
 
 
     ui->boton_1->setIcon(*rd);
