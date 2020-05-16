@@ -67,15 +67,25 @@ MainWindow::~MainWindow()
  */
 void MainWindow::reciboDatosUsuarioReg(string username, string password)
 {
-    if(base.compararDatosUsuario(username,password)){
+
+    if(base.compararDatosUsuario(username,password)==0){
         ui->RegPnt->setEnabled(true);
         ui->_lbl_username->setText(QString::fromStdString(username));
     }
-    else{ clave_erronea b;
-          b.setModal(true);
-          b.show();
-          b.exec();
+    else if(base.compararDatosUsuario(username,password)==2){
+        clave_erronea b;
+        b.setModal( true );
+        b.show();
+        b.exec();
+        ui->RegPnt->setEnabled(false);
         }
+    else {
+        clave_erronea b;
+        b.setModal( true );
+        b.show();
+        b.exec();
+        ui->RegPnt->setEnabled(false);
+    }
 }
 /**
  * @brief MainWindow::calcular_edad

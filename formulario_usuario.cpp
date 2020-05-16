@@ -4,8 +4,8 @@
 #include "mainwindow.h"
 
 /**
- * @brief formulario_usuario::formulario_usuario
- * @param parent
+ * @brief formulario_paciente::formulario_paciente es el constructor de la clase
+ * @param parent es una ventana de dialogo la cual se va a habilitar desde el mainwindow con el boton de registro
  */
 formulario_usuario::formulario_usuario(QWidget *parent) :
     QDialog(parent),
@@ -13,7 +13,7 @@ formulario_usuario::formulario_usuario(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    string claveAdminUI = ui->clvadminNR->text().toStdString();
+    //string claveAdminUI = ui->clvadminNR->text().toStdString();
 
 }
 /**

@@ -46,6 +46,7 @@ bool DB_Local::almacenarUsuario(string nombreUsuario, string password,  string N
     char *zErrMsg = 0;
     int rc;
 
+
     std::stringstream sql;
     sql << "INSERT INTO usuario(nombreUS, password, Nombre, Apellido, Documento, Edad) VALUES ('" ;
     sql << nombreUsuario << "', '" <<  password << "', '" << Nombre <<"','"<<apellido<<"',"<< documento<<","<<edad <<");" ;
@@ -53,7 +54,7 @@ bool DB_Local::almacenarUsuario(string nombreUsuario, string password,  string N
     std::cout << sql.str() << std::endl;
 
     rc = sqlite3_exec(db, sql.str().c_str(), 0, 0, &zErrMsg);
-
+    rc=1;
     if( rc != SQLITE_OK ){
        fprintf(stderr, "SQL error: %s\n", zErrMsg);
        sqlite3_free(zErrMsg);
@@ -113,7 +114,25 @@ bool DB_Local::cerrarDB(){
  */
 int DB_Local::funcionLlamadaU(void* data,int argc, char **argv, char **azColName){
     char* cont = (char* ) data;
-    return strcmp (cont,argv[1]);
+    if (strcmp (cont,argv[1])!=0){
+        return 10;
+    }
+    return 0 ;
+}
+/**
+ * @brief DB_Local::funcionLlamadaU
+ * @param data
+ * @param argc
+ * @param argv
+ * @param azColName
+ * @return
+ */
+int DB_Local::funcionLlamadaU1(void* data,int argc, char **argv, char **azColName){
+    char* cont = (char* ) data;
+    if (strcmp (cont,argv[1])!=0){
+        return 4;
+    }
+    return 1;
 }
 /**
  * @brief DB_Local::compararDatosUsuario
@@ -121,25 +140,28 @@ int DB_Local::funcionLlamadaU(void* data,int argc, char **argv, char **azColName
  * @param contrasena
  * @return
  */
-bool DB_Local::compararDatosUsuario(string nombreUsuario, string contrasena){
+int DB_Local::compararDatosUsuario(string nombreUsuario, string contrasena){
     char *zErrMsg = 0;
     int rc;
-
+    rc = 1 ;
     std::string sql = "SELECT nombreUS, password FROM usuario WHERE nombreUS=('";
     sql+=nombreUsuario;
     sql+="');";
-    rc = 1 ;
-
     char * cstr = new char [contrasena.length()+1];
     std::strcpy (cstr, contrasena.c_str());
-
+    rc = sqlite3_exec(db, sql.c_str(), funcionLlamadaU1,(void* ) cstr, &zErrMsg);
+    if(rc==0){
+        return 1;
+    }
 
     rc = sqlite3_exec(db, sql.c_str(), funcionLlamadaU, (void* ) cstr, &zErrMsg);
-
     if( rc != 0 ){
        fprintf(stderr, "SQL error: %s\n", zErrMsg);
        sqlite3_free(zErrMsg);
-       return false;
+       return 2;
     }
-    return true;
+    else{
+      return 0;
+    }
+
 }

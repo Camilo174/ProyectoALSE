@@ -2,6 +2,9 @@
 #define CLAVE_ERRONEA_H
 
 #include <QDialog>
+#include <string>
+
+using namespace std;
 
 namespace Ui {
 class clave_erronea;

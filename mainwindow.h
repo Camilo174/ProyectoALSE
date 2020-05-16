@@ -63,7 +63,6 @@ private slots:
     void on_boton_10_clicked();
 
     void verificar_click(int estado);
-
 private:
     Ui::MainWindow *ui;
     QPixmap *rd, *rl;
