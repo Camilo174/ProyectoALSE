@@ -12,6 +12,12 @@ using namespace std;
 namespace Ui {
 class formulario_paciente;
 }
+/**
+ * @brief The formulario_paciente class se defiene como una ventana de dialogo, en los atributos publicos se define el
+ * constructor y destructor de la clase, en señales se tiene la funcion enviarDatosPnt la cual es necesaria para enviar
+ * los datos del paciente, en los slots privados estan las funciones con sus respectivos parametros y se define
+ * el boton "OK" o "cancel" y en los atributos privados la ventana
+ */
 
 class formulario_paciente : public QDialog
 {

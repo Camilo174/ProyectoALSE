@@ -10,7 +10,10 @@
 #include <vector>
 
 using namespace std;
-
+/**
+ * @brief The prueba struct esta estructura sirve para imprimir mas adelante la hora y si fue correcto o incorrecto
+ * cuando se oprime el boton con la aplicacion de agilidad
+ */
 struct prueba
 {
     QTime hora;
@@ -23,7 +26,10 @@ namespace Ui {
 class MainWindow;
 }
 /**
- * @brief The MainWindow class
+ * @brief The MainWindow class es la clase mainwindow en la cual en los parametros publicos se tiene el constructor y
+ * destructor de la clase, en los slots privados se colocan las funciones de la clase con sus respectivos parametros y
+ * se definen los botones de la aplicacion y en los atributos privados se definen las variables ui, *rd, *rl, *_timer1,
+ * *_timer2, _estado, estado, _aciertos, _errores y la base de datos.
  */
 class MainWindow : public QMainWindow
 {

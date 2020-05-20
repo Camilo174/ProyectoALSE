@@ -4,8 +4,8 @@
 
 using namespace std;
 /**
- * @brief formulario_paciente::formulario_paciente
- * @param parent
+ * @brief formulario_paciente::formulario_paciente es el constructor de la clase
+ * @param parent es una ventana de dialogo la cual se va a habilitar desde el mainwindow con el boton de registro
  */
 formulario_paciente::formulario_paciente(QWidget *parent) :
     QDialog(parent),
@@ -14,14 +14,17 @@ formulario_paciente::formulario_paciente(QWidget *parent) :
     ui->setupUi(this);
 }
 /**
- * @brief formulario_paciente::~formulario_paciente
+ * @brief formulario_paciente::~formulario_paciente es el destructor de la clase
  */
 formulario_paciente::~formulario_paciente()
 {
     delete ui;
 }
 /**
- * @brief formulario_paciente::on_buttonBox_accepted
+ * @brief formulario_paciente::on_buttonBox_accepted  me dice que pasa cuando se oprime el boton "ok"
+ * traigo de la interfaz la informacion correspondiente, luego se calcula la edad del paciente y se verifica cual
+ * fue la opcion marcada por el paciente en el genero,raza y nivel de ingresos, para luego enviarla con el emit
+ * al mainWindow
  */
 void formulario_paciente::on_buttonBox_accepted()
 {
@@ -39,6 +42,10 @@ void formulario_paciente::on_buttonBox_accepted()
     int mesN = ui->fechaN_pnt->date().month();
     int diaN = ui->fechaN_pnt->date().day();
 
+    /**
+    * @brief fecha_actual se trae la fecha actual con la funcion de  QDate::currentDate() la cual se va a utilizar para
+    * calcular la edad del paciente
+    */
     QDate fecha_actual = QDate::currentDate();
     int anoA = fecha_actual.year();
     int mesA = fecha_actual.month();
@@ -89,14 +96,20 @@ void formulario_paciente::on_buttonBox_accepted()
     emit enviarDatosPnt(NombrePnt,ApellidoPnt,edad,docPnt,generoPnt,razaPnt,nivelSEpnt,aceptado);
 }
 /**
- * @brief formulario_paciente::calcular_edad
- * @param anoN
- * @param mesN
- * @param diaN
- * @param ano_actual
- * @param mes_actual
- * @param dia_actual
- * @return
+ * @brief formulario_paciente::calcular_edad esta funcion es para calcular la edad y se le pasan los siguientes parametros
+ * @param anoN: año de nacimiento del paciente
+ * @param mesN: mes de nacimiento del paciente
+ * @param diaN: día de nacimiento del paciente
+ * @param ano_actual: año actual del sistema
+ * @param mes_actual: mes actual del sistema
+ * @param dia_actual: dia actual del sistema
+ * @details para obtener la edad se debe restar la fecha de nacimiento de la fecha actual como el sistema toma solo
+ * los ultimos dos digitos del año entonces cuando el año es menor al 2000 se restara 100 para que se calcule
+ * correctamente, si el mes actual es mayor al mes de nacimiento quiere decir que la edad es la diferencia de
+ * los años,si el mes actual es menor al de nacimiento quiere decir que la edad va a ser la diferencia de años
+ * menos 1 ya que no habra cumplido años la persona, si el mes actual es igual se compara los dias para calcular
+ * la edad correctamente.
+ * @return la edad del paciente
  */
 int formulario_paciente::calcular_edad(int anoN, int mesN, int diaN, int ano_actual, int mes_actual, int dia_actual)
 {

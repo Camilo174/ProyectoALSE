@@ -4,22 +4,24 @@
 #include <cstring>
 #include <sqlite3.h>
 /**
- * @brief DB_Local::DB_Local
+ * @brief DB_Local::DB_Local es el constructor de la clase
  */
 DB_Local::DB_Local()
 {
 
 }
 /**
- * @brief DB_Local::abrirDB
- * @param path
- * @return
+ * @brief DB_Local::abrirDB abre la base de datos
+ * @param path es el archivo de la base de datos
+ * @return true si puede abrir la base de datos o false si no puede abrir la base de datos y un mensaje en la pantalla
  */
 bool DB_Local::abrirDB(string path){
     char *zErrMsg = 0;
     int rc;
 
-    /* Open database */
+    /**
+     * abre la base de datos
+    */
     rc = sqlite3_open( path.c_str() , &db);
 
     if( rc ) {
@@ -32,14 +34,14 @@ bool DB_Local::abrirDB(string path){
 
 }
 /**
- * @brief DB_Local::almacenarUsuario
- * @param nombreUsuario
- * @param password
- * @param Nombre
- * @param apellido
- * @param documento
- * @param edad
- * @return
+ * @brief DB_Local::almacenarUsuario  con esta funcion se guarda los datos del usuario nuevo en la base de datos
+ * @param nombreUsuario: el nombre con el cual el usuario va a poder iniciar sesion
+ * @param password: la clave del usuario
+ * @param Nombre: nombre del usuario
+ * @param apellido: apellido del usuario
+ * @param documento: documento del paciente
+ * @param edad: edad del paciente
+ * @return true si puede almacenar correctamente los datos y false si no puede almacenar los datos
  */
 bool DB_Local::almacenarUsuario(string nombreUsuario, string password,  string Nombre, string apellido, int documento, int edad){
 
@@ -54,7 +56,6 @@ bool DB_Local::almacenarUsuario(string nombreUsuario, string password,  string N
     std::cout << sql.str() << std::endl;
 
     rc = sqlite3_exec(db, sql.str().c_str(), 0, 0, &zErrMsg);
-    rc=1;
     if( rc != SQLITE_OK ){
        fprintf(stderr, "SQL error: %s\n", zErrMsg);
        sqlite3_free(zErrMsg);
@@ -65,15 +66,15 @@ bool DB_Local::almacenarUsuario(string nombreUsuario, string password,  string N
     return true;
 }
 /**
- * @brief DB_Local::almacenarPaciente
- * @param Nombre
- * @param apellido
- * @param edad
- * @param documento
- * @param ingresos
- * @param genero
- * @param raza
- * @return
+ * @brief DB_Local::almacenarPaciente con esta funcion se guarda los datos del paciente en la base de datos respectiva
+ * @param Nombre: nombre del paciente
+ * @param apellido: apellido del paciente
+ * @param edad: edad del paciente
+ * @param documento: documento del paciente
+ * @param ingresos: nivel de ingresos del paciente
+ * @param genero: genero del paciente
+ * @param raza: raza del paciente
+ * @return true si puede guardar correctamente los datos del paciente en la base de datos o false si no puede guardar la informacion
  */
 bool DB_Local::almacenarPaciente(string Nombre, string apellido, int edad, int documento, string ingresos ,string genero,string raza){
 
@@ -98,19 +99,20 @@ bool DB_Local::almacenarPaciente(string Nombre, string apellido, int edad, int d
     return true;
 }
 /**
- * @brief DB_Local::cerrarDB
+ * @brief DB_Local::cerrarDB esta funcion cierra la base de datos
  * @return
  */
 bool DB_Local::cerrarDB(){
     sqlite3_close( db );
 }
 /**
- * @brief DB_Local::funcionLlamadaU
+ * @brief DB_Local::funcionLlamadaU  esta funcion me sirve para comparar si la contraseña ingresada es la misma que la que esta
+ * en la base de datos es decir si es correcta
  * @param data
  * @param argc
  * @param argv
  * @param azColName
- * @return
+ * @return 0 si es correcta la contraseña o un valor diferente de 0 si es incorrecta
  */
 int DB_Local::funcionLlamadaU(void* data,int argc, char **argv, char **azColName){
     char* cont = (char* ) data;
@@ -120,12 +122,14 @@ int DB_Local::funcionLlamadaU(void* data,int argc, char **argv, char **azColName
     return 0 ;
 }
 /**
- * @brief DB_Local::funcionLlamadaU
+ * @brief DB_Local::funcionLlamadaU1  esta funcion me sirve para saber si la contraseña es la misma que la que esta
+ * en la base de datos, pero esta funcion fue creada para solucionar un error que se encontro al ingresar un usuario
+ * no existente en la base de datos
  * @param data
  * @param argc
  * @param argv
  * @param azColName
- * @return
+ * @return 0 si el usuario no existe
  */
 int DB_Local::funcionLlamadaU1(void* data,int argc, char **argv, char **azColName){
     char* cont = (char* ) data;
@@ -135,10 +139,12 @@ int DB_Local::funcionLlamadaU1(void* data,int argc, char **argv, char **azColNam
     return 1;
 }
 /**
- * @brief DB_Local::compararDatosUsuario
- * @param nombreUsuario
- * @param contrasena
- * @return
+ * @brief DB_Local::compararDatosUsuario esta funcion se le pasan los nombres de usuario y la contraseña que se ingreso
+ * si el usuario ya esta registrado para comparar que estos datos esten en la base de datos
+ * @param nombreUsuario nombre de usuario ingresado por el usuario para comparar que este en la base de datos
+ * @param contrasena contraseña del usuario
+ * despues de verificar que este el nombre de usuario en la base de datos se llama la funcion llamada u para comparar las contraseñas
+ * @return 1 si el nombre de usuario no esta bien 2  si la contraseña es incorrecta y 0 si los datos son correctos
  */
 int DB_Local::compararDatosUsuario(string nombreUsuario, string contrasena){
     char *zErrMsg = 0;

@@ -1,0 +1,148 @@
+\hypertarget{class_d_b___local}{}\section{D\+B\+\_\+\+Local Class Reference}
+\label{class_d_b___local}\index{D\+B\+\_\+\+Local@{D\+B\+\_\+\+Local}}
+
+
+The \hyperlink{class_d_b___local}{D\+B\+\_\+\+Local} class se tiene en cuenta sqlite3 para la base de datos en los atributos privados se definen las funciones llamadas necesarias para comparar las contraseñas y en los atributos publicos se definen las funciones necesarias con sus parametros correspondientes.  
+
+
+
+
+{\ttfamily \#include $<$db\+\_\+local.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_d_b___local_a439c348ad67f06527f46ee2ddbfbcb05}\label{class_d_b___local_a439c348ad67f06527f46ee2ddbfbcb05}} 
+\hyperlink{class_d_b___local_a439c348ad67f06527f46ee2ddbfbcb05}{D\+B\+\_\+\+Local} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_d_b___local_a439c348ad67f06527f46ee2ddbfbcb05}{D\+B\+\_\+\+Local\+::\+D\+B\+\_\+\+Local} es el constructor de la clase. \end{DoxyCompactList}\item 
+bool \hyperlink{class_d_b___local_af177cdf53157cb7da307a50b95b19001}{almacenar\+Paciente} (string Nombre, string apellido, int edad, int documento, string genero, string raza, string ingresos)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_d_b___local_af177cdf53157cb7da307a50b95b19001}{D\+B\+\_\+\+Local\+::almacenar\+Paciente} con esta funcion se guarda los datos del paciente en la base de datos respectiva. \end{DoxyCompactList}\item 
+bool \hyperlink{class_d_b___local_ad8637aa272a8a361ae2a6e1e7f8cd71c}{abrir\+DB} (string path)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_d_b___local_ad8637aa272a8a361ae2a6e1e7f8cd71c}{D\+B\+\_\+\+Local\+::abrir\+DB} abre la base de datos. \end{DoxyCompactList}\item 
+int \hyperlink{class_d_b___local_a7812291d7772ef9b4a4e4bfe0cac3a09}{comparar\+Datos\+Usuario} (string nombre\+Usuario, string contrasena)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_d_b___local_a7812291d7772ef9b4a4e4bfe0cac3a09}{D\+B\+\_\+\+Local\+::comparar\+Datos\+Usuario} esta funcion se le pasan los nombres de usuario y la contraseña que se ingreso si el usuario ya esta registrado para comparar que estos datos esten en la base de datos. \end{DoxyCompactList}\item 
+bool \hyperlink{class_d_b___local_a021938e1e159fd8c2f6876f2a74d6655}{almacenar\+Usuario} (string nombre\+Usuario, string password, string Nombre, string apellido, int documento, int edad)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_d_b___local_a021938e1e159fd8c2f6876f2a74d6655}{D\+B\+\_\+\+Local\+::almacenar\+Usuario} con esta funcion se guarda los datos del usuario nuevo en la base de datos. \end{DoxyCompactList}\item 
+bool \hyperlink{class_d_b___local_aa5f3f6315c55e86a030da1c4c9b3a4cb}{cerrar\+DB} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_d_b___local_aa5f3f6315c55e86a030da1c4c9b3a4cb}{D\+B\+\_\+\+Local\+::cerrar\+DB} esta funcion cierra la base de datos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_d_b___local}{D\+B\+\_\+\+Local} class se tiene en cuenta sqlite3 para la base de datos en los atributos privados se definen las funciones llamadas necesarias para comparar las contraseñas y en los atributos publicos se definen las funciones necesarias con sus parametros correspondientes. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_d_b___local_ad8637aa272a8a361ae2a6e1e7f8cd71c}\label{class_d_b___local_ad8637aa272a8a361ae2a6e1e7f8cd71c}} 
+\index{D\+B\+\_\+\+Local@{D\+B\+\_\+\+Local}!abrir\+DB@{abrir\+DB}}
+\index{abrir\+DB@{abrir\+DB}!D\+B\+\_\+\+Local@{D\+B\+\_\+\+Local}}
+\subsubsection{\texorpdfstring{abrir\+D\+B()}{abrirDB()}}
+{\footnotesize\ttfamily bool D\+B\+\_\+\+Local\+::abrir\+DB (\begin{DoxyParamCaption}\item[{string}]{path }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_d_b___local_ad8637aa272a8a361ae2a6e1e7f8cd71c}{D\+B\+\_\+\+Local\+::abrir\+DB} abre la base de datos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & es el archivo de la base de datos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si puede abrir la base de datos o false si no puede abrir la base de datos y un mensaje en la pantalla 
+\end{DoxyReturn}
+abre la base de datos\mbox{\Hypertarget{class_d_b___local_af177cdf53157cb7da307a50b95b19001}\label{class_d_b___local_af177cdf53157cb7da307a50b95b19001}} 
+\index{D\+B\+\_\+\+Local@{D\+B\+\_\+\+Local}!almacenar\+Paciente@{almacenar\+Paciente}}
+\index{almacenar\+Paciente@{almacenar\+Paciente}!D\+B\+\_\+\+Local@{D\+B\+\_\+\+Local}}
+\subsubsection{\texorpdfstring{almacenar\+Paciente()}{almacenarPaciente()}}
+{\footnotesize\ttfamily bool D\+B\+\_\+\+Local\+::almacenar\+Paciente (\begin{DoxyParamCaption}\item[{string}]{Nombre,  }\item[{string}]{apellido,  }\item[{int}]{edad,  }\item[{int}]{documento,  }\item[{string}]{ingresos,  }\item[{string}]{genero,  }\item[{string}]{raza }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_d_b___local_af177cdf53157cb7da307a50b95b19001}{D\+B\+\_\+\+Local\+::almacenar\+Paciente} con esta funcion se guarda los datos del paciente en la base de datos respectiva. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nombre} & nombre del paciente \\
+\hline
+{\em apellido} & apellido del paciente \\
+\hline
+{\em edad} & edad del paciente \\
+\hline
+{\em documento} & documento del paciente \\
+\hline
+{\em ingresos} & nivel de ingresos del paciente \\
+\hline
+{\em genero} & genero del paciente \\
+\hline
+{\em raza} & raza del paciente \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si puede guardar correctamente los datos del paciente en la base de datos o false si no puede guardar la informacion 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_d_b___local_a021938e1e159fd8c2f6876f2a74d6655}\label{class_d_b___local_a021938e1e159fd8c2f6876f2a74d6655}} 
+\index{D\+B\+\_\+\+Local@{D\+B\+\_\+\+Local}!almacenar\+Usuario@{almacenar\+Usuario}}
+\index{almacenar\+Usuario@{almacenar\+Usuario}!D\+B\+\_\+\+Local@{D\+B\+\_\+\+Local}}
+\subsubsection{\texorpdfstring{almacenar\+Usuario()}{almacenarUsuario()}}
+{\footnotesize\ttfamily bool D\+B\+\_\+\+Local\+::almacenar\+Usuario (\begin{DoxyParamCaption}\item[{string}]{nombre\+Usuario,  }\item[{string}]{password,  }\item[{string}]{Nombre,  }\item[{string}]{apellido,  }\item[{int}]{documento,  }\item[{int}]{edad }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_d_b___local_a021938e1e159fd8c2f6876f2a74d6655}{D\+B\+\_\+\+Local\+::almacenar\+Usuario} con esta funcion se guarda los datos del usuario nuevo en la base de datos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre\+Usuario} & el nombre con el cual el usuario va a poder iniciar sesion \\
+\hline
+{\em password} & la clave del usuario \\
+\hline
+{\em Nombre} & nombre del usuario \\
+\hline
+{\em apellido} & apellido del usuario \\
+\hline
+{\em documento} & documento del paciente \\
+\hline
+{\em edad} & edad del paciente \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si puede almacenar correctamente los datos y false si no puede almacenar los datos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_d_b___local_aa5f3f6315c55e86a030da1c4c9b3a4cb}\label{class_d_b___local_aa5f3f6315c55e86a030da1c4c9b3a4cb}} 
+\index{D\+B\+\_\+\+Local@{D\+B\+\_\+\+Local}!cerrar\+DB@{cerrar\+DB}}
+\index{cerrar\+DB@{cerrar\+DB}!D\+B\+\_\+\+Local@{D\+B\+\_\+\+Local}}
+\subsubsection{\texorpdfstring{cerrar\+D\+B()}{cerrarDB()}}
+{\footnotesize\ttfamily bool D\+B\+\_\+\+Local\+::cerrar\+DB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_d_b___local_aa5f3f6315c55e86a030da1c4c9b3a4cb}{D\+B\+\_\+\+Local\+::cerrar\+DB} esta funcion cierra la base de datos. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_d_b___local_a7812291d7772ef9b4a4e4bfe0cac3a09}\label{class_d_b___local_a7812291d7772ef9b4a4e4bfe0cac3a09}} 
+\index{D\+B\+\_\+\+Local@{D\+B\+\_\+\+Local}!comparar\+Datos\+Usuario@{comparar\+Datos\+Usuario}}
+\index{comparar\+Datos\+Usuario@{comparar\+Datos\+Usuario}!D\+B\+\_\+\+Local@{D\+B\+\_\+\+Local}}
+\subsubsection{\texorpdfstring{comparar\+Datos\+Usuario()}{compararDatosUsuario()}}
+{\footnotesize\ttfamily int D\+B\+\_\+\+Local\+::comparar\+Datos\+Usuario (\begin{DoxyParamCaption}\item[{string}]{nombre\+Usuario,  }\item[{string}]{contrasena }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_d_b___local_a7812291d7772ef9b4a4e4bfe0cac3a09}{D\+B\+\_\+\+Local\+::comparar\+Datos\+Usuario} esta funcion se le pasan los nombres de usuario y la contraseña que se ingreso si el usuario ya esta registrado para comparar que estos datos esten en la base de datos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre\+Usuario} & nombre de usuario ingresado por el usuario para comparar que este en la base de datos \\
+\hline
+{\em contrasena} & contraseña del usuario despues de verificar que este el nombre de usuario en la base de datos se llama la funcion llamada u para comparar las contraseñas \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si el nombre de usuario no esta bien 2 si la contraseña es incorrecta y 0 si los datos son correctos 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/alseuser/\+Proyecto\+A\+L\+S\+E/db\+\_\+local.\+h\item 
+/home/alseuser/\+Proyecto\+A\+L\+S\+E/db\+\_\+local.\+cpp\end{DoxyCompactItemize}

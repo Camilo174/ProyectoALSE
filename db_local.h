@@ -6,6 +6,11 @@
 
 using namespace std;
 
+/**
+ * @brief The DB_Local class se tiene en cuenta sqlite3 para la base de datos en los atributos privados se definen las funciones
+ * llamadas necesarias para comparar las contraseñas y en los atributos publicos se definen las funciones necesarias con sus
+ * parametros correspondientes
+ */
 class DB_Local{
 private:
     sqlite3 *db;
